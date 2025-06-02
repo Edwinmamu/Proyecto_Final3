@@ -4,7 +4,7 @@ import streamlit as st
 
 def fetch_tourism_data():
     try:
-        response = requests.get("http://localhost:3000/users")
+        response = requests.get("http://localhost:3000/destinos")
         response.raise_for_status()  # lanza excepción si status != 200
         data = response.json()
         return pd.DataFrame(data)

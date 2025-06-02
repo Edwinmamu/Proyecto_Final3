@@ -1,1 +1,25 @@
-.venv
+
+
+```gitignore
+# Entorno virtual
+.venv/
+env/
+venv/
+
+# Archivos temporales
+*.pyc
+__pycache__/
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración de usuario de VSCode
+.vscode/
+
+# Archivos de Mockoon exportados si no se desea versionar
+mockoon/*.json
+
+# Configuración local de Streamlit
+.streamlit/secrets.toml
