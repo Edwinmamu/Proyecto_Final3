@@ -10,15 +10,19 @@ modelo = genai.GenerativeModel("gemini-2.0-flash")
 
 st.set_page_config(page_title="Agencia de Viajes", layout="wide")
 
-url = "http://localhost:3000/destinos"
-response = requests.get(url)
+# url = "http://localhost:3000/destinos"
+response = requests.get("https://ejemplo-8v96.onrender.com/destinos")
 data = response.json()
 df_visible = pd.DataFrame(data)
+
+
 
 # Limpieza de columnas clave para evitar errores de filtrado y mostrar datos coherentes
 df_visible["pais"] = df_visible["pais"].astype(str).str.strip().str.title()
 df_visible["categoria"] = df_visible["categoria"].astype(str).str.strip().str.title()
 df_visible["ciudad"] = df_visible["ciudad"].astype(str).str.strip().str.title()
+# Convertir gasto promedio a numérico y manejar errores
+df_visible["gasto_promedio"] = pd.to_numeric(df_visible["gasto_promedio"], errors='coerce')
 
 
 
